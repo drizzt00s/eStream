@@ -3,17 +3,17 @@ import uirouter from 'angular-ui-router';
 
 var main = angular.module('app', [uirouter]);
 
-var jobCtl = require('../views/job/job.js')(main);
-var configCtl = require('../views/config/config.js')(main);
-var accountCtl = require('../views/account/account.js')(main);
-var contactCtl = require('../views/contact/contact.js')(main);
+var jobCtl = require('./views/job/job.js')(main);
+var configCtl = require('./views/config/config.js')(main);
+var accountCtl = require('./views/account/account.js')(main);
+var contactCtl = require('./views/contact/contact.js')(main);
 
 require('./service/globalService.js')(main);
 
 main.config(function($stateProvider, $urlRouterProvider){
 	$stateProvider.state('job',{
 		url:'/job',
-		templateUrl:'views/job/job.html',
+		templateUrl:'./views/job/job.html',
 		controller:jobCtl
 	})
 	// .state('visitplace',{
@@ -44,17 +44,17 @@ main.config(function($stateProvider, $urlRouterProvider){
 	// })
 	.state('config',{
 		url:'/config',
-		templateUrl:'views/config/config.html',
+		templateUrl:'./views/config/config.html',
 		controller:configCtl
 	})
 	.state('account',{
 		url:'/account',
-		templateUrl:'views/account/account.html',
+		templateUrl:'./views/account/account.html',
 		controller:accountCtl
 	})
 	.state('contact',{
 		url:'/contact',
-		templateUrl:'views/contact/contact.html',
+		templateUrl:'./views/contact/contact.html',
 		controller:contactCtl
 	});
 
