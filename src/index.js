@@ -3,17 +3,18 @@ import uirouter from 'angular-ui-router';
 
 var main = angular.module('app', [uirouter]);
 
- var homeCtl = require('../views/home/home.js')(main);
- var visitplaceCtl = require('../views/visitplace/visitplace.js')(main);
- var productsCtl = require('../views/products/products.js')(main);
+var jobCtl = require('../views/job/job.js')(main);
+var configCtl = require('../views/config/config.js')(main);
+var accountCtl = require('../views/account/account.js')(main);
+var contactCtl = require('../views/contact/contact.js')(main);
 
 require('./service/globalService.js')(main);
 
 main.config(function($stateProvider, $urlRouterProvider){
-	$stateProvider.state('home',{
-		url:'/home',
-		templateUrl:'views/home/home.html',
-		controller:homeCtl
+	$stateProvider.state('job',{
+		url:'/job',
+		templateUrl:'views/job/job.html',
+		controller:jobCtl
 	})
 	// .state('visitplace',{
 	// 	url:'/visitplace',
@@ -41,15 +42,20 @@ main.config(function($stateProvider, $urlRouterProvider){
 	// 		}
 	// 	}
 	// })
-	.state('visitplace',{
-		url:'/visitplace',
-		templateUrl:'views/visitplace/visitplace.html',
-		controller:productsCtl
+	.state('config',{
+		url:'/config',
+		templateUrl:'views/config/config.html',
+		controller:configCtl
 	})
-	.state('products',{
-		url:'/products',
-		templateUrl:'views/products/products.html',
-		controller:productsCtl
+	.state('account',{
+		url:'/account',
+		templateUrl:'views/account/account.html',
+		controller:accountCtl
+	})
+	.state('contact',{
+		url:'/contact',
+		templateUrl:'views/contact/contact.html',
+		controller:contactCtl
 	});
 
 	$urlRouterProvider.otherwise('/');
